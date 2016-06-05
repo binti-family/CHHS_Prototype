@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605013824) do
+ActiveRecord::Schema.define(version: 20160605043715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
+
+  create_table "facilities", force: :cascade do |t|
+    t.json      "raw_location_data"
+    t.integer   "facility_type"
+    t.string    "address"
+    t.string    "city"
+    t.string    "phone_number"
+    t.string    "name"
+    t.string    "administrator"
+    t.string    "status"
+    t.integer   "facility_number"
+    t.string    "zipcode"
+    t.string    "county"
+    t.geography "location",          limit: {:srid=>4326, :type=>"point", :geographic=>true}
+  end
+
+  add_index "facilities", ["facility_number"], name: "index_facilities_on_facility_number", using: :btree
+  add_index "facilities", ["facility_type"], name: "index_facilities_on_facility_type", using: :btree
+  add_index "facilities", ["location"], name: "index_facilities_on_location", using: :gist
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
