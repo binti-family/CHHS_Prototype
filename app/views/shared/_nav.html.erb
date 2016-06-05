@@ -13,6 +13,9 @@
         <a href="#" class="text-center">Messages</a>
       </li>
       <li>
+        <a href="#" class="text-center">Find Stuff</a>
+      </li>
+      <li>
         <%= link_to "Sign Out",
           destroy_session_path(:user),
           method: :delete,
@@ -20,12 +23,10 @@
       </li>
     </ul>
   <% else %>
-    <div class="usa-grid">
-      <div class="logo">
-        <%= link_to root_path do %>
-          <img src="/images/chhslogo.png" alt="CHHS logo" height="50px">
-        <% end %>
-      </div>
+    <div class="usa-grid text-center">
+      <%= link_to root_path, class: "logo-only" do %>
+        <img src="/images/chhslogo.png" alt="CHHS logo" height="50px">
+      <% end %>
     </div>
   <% end %>
 </nav>

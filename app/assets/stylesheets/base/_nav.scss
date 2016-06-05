@@ -41,6 +41,11 @@ nav {
     width: 9em;
   }
 
+  .logo-only {
+    display: inline-block;
+    margin-top: 0.4em;
+  }
+
   .nav-toggle {
     display: block;
     color: $color-white;

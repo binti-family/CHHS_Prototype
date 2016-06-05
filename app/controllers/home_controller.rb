@@ -4,4 +4,7 @@ class HomeController < ApplicationController
       redirect_to dashboard_user_path
     end
   end
+
+  def map
+  end
 end
