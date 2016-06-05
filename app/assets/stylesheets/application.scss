@@ -1,7 +1,14 @@
 // Vendors ==============================
 
+@import "font-awesome";
+@import "vendors/uswds/all";
+
 // Configs ==============================
 
 @import "configs/theme";
-@import "configs/grid";
+@import "configs/typography";
 
+// Base =================================
+
+@import "base/body";
+@import "base/nav";
