@@ -12,13 +12,13 @@ class ChhsApiClient < SODA::Client
   end
 
   def query(facility_type: :adoption_agency, limit: 10_000)
-    dataset_identifier = DATASET_IDENTIFIER_MAP[facility_type]
-    unless dataset_identifier
+    unless DATASET_IDENTIFIER_MAP.has_key?(facility_type)
       raise ArgumentError.new(
         "Invalid facility_type #{facility_type} " +
         "Valid options are #{DATASET_IDENTIFIER_MAP.keys.join(", ")}"
       )
     end
+    dataset_identifier = DATASET_IDENTIFIER_MAP[facility_type]
 
     get(dataset_identifier, {"$limit" => limit})
   end
