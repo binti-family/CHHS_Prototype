@@ -1,0 +1,31 @@
+<div class="usa-grid">
+  <h2 class="text-center">Get started with the Parent Gateway today</h2>
+
+  <h3>
+    <%= link_to "Find Stuff near you", map_path %>
+  </h3>
+
+  <h3 class="texts-center">
+    Create an Account<br />
+    <span class="sub-text">
+      or
+      <%= link_to "Sign In", new_session_path(:user) %>
+    </span>
+  </h3>
+
+  <%= form_for(User.new, as: :user, url: registration_path(:user)) do |f| %>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off" %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+    <%= f.submit "Sign up" %>
+  <% end %>
+</div>
