@@ -11,9 +11,12 @@ gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'soda-ruby', require: 'soda' # for accessing CA HHS open data
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'dotenv-rails'
   gem 'guard'
   gem 'guard-livereload'
   gem 'rack-livereload'
