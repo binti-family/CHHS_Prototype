@@ -1,7 +1,7 @@
 class ChhsApiClient < SODA::Client
   DATASET_IDENTIFIER_MAP = {
-    adoption_agencies: ENV["CHHS_ADOPTION_AGENCIES_DATASET_ID"],
-    residential_facilities: ENV["CHHS_RESIDENTIAL_FACILITIES_DATASET_ID"]
+    adoption_agency: ENV["CHHS_ADOPTION_AGENCIES_DATASET_ID"],
+    residential_facility: ENV["CHHS_RESIDENTIAL_FACILITIES_DATASET_ID"]
   }
 
   def initialize
@@ -11,15 +11,15 @@ class ChhsApiClient < SODA::Client
     )
   end
 
-  def query(dataset: :adoption_agencies)
-    dataset_identifier = DATASET_IDENTIFIER_MAP[dataset]
+  def query(facility_type: :adoption_agency, limit: 10_000)
+    dataset_identifier = DATASET_IDENTIFIER_MAP[facility_type]
     unless dataset_identifier
       raise ArgumentError.new(
-        "Invalid dataset #{dataset}. " +
+        "Invalid facility_type #{facility_type} " +
         "Valid options are #{DATASET_IDENTIFIER_MAP.keys.join(", ")}"
       )
     end
 
-    get(dataset_identifier, {"$limit" => 10_000})
+    get(dataset_identifier, {"$limit" => limit})
   end
 end
