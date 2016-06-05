@@ -62,6 +62,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.0.1)
     diff-lcs (1.2.5)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
@@ -244,6 +245,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   devise
+  devise-i18n
   dotenv-rails
   factory_girl_rails
   font-awesome-rails
