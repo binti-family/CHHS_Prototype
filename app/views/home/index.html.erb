@@ -1,15 +1,15 @@
 <div class="usa-grid">
-  <h2 class="text-center">Get started with the Parent Gateway today</h2>
+  <h2 class="text-center"><%= t("get_started") %></h2>
 
   <h3>
-    <%= link_to "Find Stuff near you", map_path %>
+    <%= link_to t("find_stuff"), map_path %>
   </h3>
 
   <h3 class="texts-center">
-    Create an Account<br />
+    <%= t("create_an_account") %><br />
     <span class="sub-text">
       or
-      <%= link_to "Sign In", new_session_path(:user) %>
+      <%= link_to t("sign_in"), new_session_path(:user) %>
     </span>
   </h3>
 
@@ -19,13 +19,13 @@
 
     <%= f.label :password %>
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= t("characters_minimum", n: @minimum_password_length) %>)</em>
     <% end %>
     <%= f.password_field :password, autocomplete: "off" %>
 
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
-    <%= f.submit "Sign up" %>
+    <%= f.submit t("sign_up") %>
   <% end %>
 </div>

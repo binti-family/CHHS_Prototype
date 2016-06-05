@@ -7,6 +7,7 @@ gem 'rails', '4.2.6'
 
 gem "autoprefixer-rails"
 gem 'devise'
+gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'pg', '~> 0.15'
@@ -33,6 +34,7 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'factory_girl_rails'
 end
 
