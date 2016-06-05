@@ -1,1 +1,2 @@
-User.create(email: 'user@mail.com', password: 'password')
+User.destroy_all
+User.create(email: 'user@exmaple.com', password: 'password')
