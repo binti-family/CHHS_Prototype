@@ -1,0 +1,14 @@
+<div class="usa-grid">
+  <h2>Welcome <%= current_user.first_name %>!</h2>
+  <ul>
+    <li>
+      <%= link_to "Edit Profile", edit_registration_path(:user)%>
+    </li>
+    <li>
+      <%= link_to "View Messages with Social Worker", "#" %>
+    </li>
+    <li>
+      <%= link_to "Find facilities", "#" %>
+    </li>
+  </ul>
+</div>

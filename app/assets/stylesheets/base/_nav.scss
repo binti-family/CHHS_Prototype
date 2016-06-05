@@ -2,20 +2,62 @@ nav {
   background: $color-primary;
   height: 70px;
   overflow: hidden;
+  transition: height ease 0.2s;
 
-  .logo {
-    padding: 10px;
-    text-align: center;
+  &.open {
+    height: 22rem;
+  }
+
+  ul {
+    display: block;
+    margin: 0;
+
+    a {
+      border-top: 1px solid $color-white;
+      color: $link-color-inverse;
+      display: block;
+      font-size: 1.2em;
+      padding: 1em;
+
+      &:visited {
+        color: $link-color-inverse;
+      }
+    }
+  }
+
+  li {
+    list-style: none;
+    display: block;
+    margin: 0;
+
+    &:before, &:after {
+      content: none;
+    }
+  }
+
+  .logo-container {
+    display: block;
+    padding-top: .4em;
+    width: 9em;
   }
 
   .nav-toggle {
     display: block;
     color: $color-white;
-    padding: 1.5em 2.5em 2em;
+    padding: 1.5rem 0 2rem;
     text-align: right;
 
+    &:active {
+      text-decoration: none;
+    }
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
     i {
-      font-size: 3.5em;
+      font-size: 3.5rem;
     }
   }
 }
