@@ -1,11 +1,53 @@
 <div class="usa-grid">
-  <h1><%= t("find_stuff") %></h1>
+  <h2><%= t(:welcome_message) %></h2>
 
-  <form action="#">
-    <label><%= t("zipcode") %>:</label>
-    <input type="text">
-    <button type="submit"><%= t("find") %></button>
+  <form action="#" class="map-finder">
+    <input type="hidden" value="25" name="within">
+    <div class="clearfix">
+      <div class="form-quarter form-zipcode">
+        <label>
+          Zipcode:
+          <input type="text" name="zipcode">
+        </label>
+      </div>
+
+      <div class="form-half form-agency">
+        <label class="select-group">
+          Facility Type
+          <select name="facility_type">
+            <option value="adoption_agency">Adoption Agencies</option>
+            <option value="adoption_agency">Residential Facilities</option>
+            <option value="">All</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="form-quarter">
+        <button type="submit">Find!</button>
+      </div>
+    </div>
   </form>
 
   <div id="map"></div>
+  <div class="facilities-container"></div>
 </div>
+
+<script type="text/template" class="template-marker-info">
+  <h4>{{= name }}</h4>
+  <p>
+    <strong>Address:</strong> {{= address }}<br/>
+    <strong>Phone Number:</strong> {{= phone_number }}
+  </p>
+</script>
+
+<script type="text/template" class="template-facility-row">
+  <section class="facility-row">
+    <h5>{{= name }}</h5>
+
+    <p>
+      <strong>{{= distance_in_miles }} miles away from you.</strong><br/>
+      {{= address }}<br/>
+      <span>Tel:{{= phone_number }}</span>
+    </p>
+  </section>
+</script>
