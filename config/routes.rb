@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace "api" do
+    get "facilities" => "facilities#index"
+  end
+
   scope "(:locale)", locale: /en|es/ do
     devise_for :users
 
@@ -8,9 +12,5 @@ Rails.application.routes.draw do
 
     get '/map' => 'home#map', as: :map
     root to: 'home#index'
-  end
-
-  namespace "api" do
-    get "facilities" => "facilities#index"
   end
 end

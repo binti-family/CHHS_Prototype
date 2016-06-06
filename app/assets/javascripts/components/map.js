@@ -1,10 +1,45 @@
 $(function () {
   var $map = $('#map');
+  var _ = window._;
 
   var initMap = function () {
-    new window.google.maps.Map(document.getElementById('map'), {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8,
+    var map = new window.google.maps.Map($map[0], {
+      center: { lat: 36.7783, lng: -119.4179 },
+      mapTypeId: window.google.maps.MapTypeId.ROADMAP,
+      zoom: 6,
+    });
+    var infoTemplate = $('.template-marker-info').html();
+
+    $('.map-finder').on('submit', function (e) {
+      e.preventDefault();
+      $.get('/api/facilities.json?' + $(e.target).serialize())
+        .done(function (results) {
+          var bounds = new window.google.maps.LatLngBounds();
+          var infoWindow = new window.google.maps.InfoWindow();
+
+          _.first(results, 10).forEach(function (facility) {
+            var md = facility.location.match(/POINT \((-?\d+.\d+)\s(-?\d+.\d+)/);
+
+            var marker = new window.google.maps.Marker({
+              position: new window.google.maps.LatLng(
+                parseFloat(md[2]),
+                parseFloat(md[1])
+              ),
+              map: map,
+              title: facility.name,
+            });
+
+            bounds.extend(marker.getPosition());
+
+            marker.addListener('click', function () {
+              infoWindow.close();
+              infoWindow.setContent(_.template(infoTemplate)(facility));
+              infoWindow.open(map, marker);
+            });
+          });
+
+          map.fitBounds(bounds);
+        });
     });
   };
 
