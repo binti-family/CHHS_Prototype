@@ -1,4 +1,18 @@
+ActionMailer::Base.smtp_settings = {
+  address: "smtp.sendgrid.net",
+  port: "587",
+  authentication: :plain,
+  user_name: ENV["SENDGRID_USERNAME"],
+  password: ENV["SENDGRID_USERNAME"],
+  domain: "binti.com"
+}
+ActionMailer::Base.delivery_method = :smtp
+
 Rails.application.configure do
+  config.action_mailer.default_url_options = { host: "chhs-prototype.binti.com" }
+  Rails.application.routes.default_url_options[:host] =
+    "chhs-prototype.binti.com"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
