@@ -20,7 +20,7 @@ sudo apt-get install postgresql-9.4 postgis
 
 ### Facilities
 
-There are fewer than 3000 facilities, so for you convenience I've included them (post-geocoding) in `config/data/facilities.yml`.
+There are fewer than 3000 facilities, so for your convenience I've included them (post-geocoding) in `config/data/facilities.yml`.
 
 To load this file into your database:
 
