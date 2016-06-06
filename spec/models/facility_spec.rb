@@ -1,6 +1,11 @@
 require "rails_helper"
 
 RSpec.describe Facility do
+  it { should have_db_index(:facility_number) }
+  it { should have_db_index(:facility_type) }
+  it { should have_db_index(:location) }
+  it { should have_db_index(:status) }
+
   context ".within_miles_of_zipcode" do
     context "no facilities exist" do
       context "valid params" do

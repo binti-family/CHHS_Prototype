@@ -2,6 +2,26 @@ require "rails_helper"
 
 RSpec.describe "Facilities queries" do
   context "Valid queries" do
+    context "All adoption agencies" do
+      let!(:licensed_agency) {
+        create(:adoption_agency, status: "LICENSED")
+      }
+      let!(:closed_agency) {
+        create(:adoption_agency, status: "CLOSED")
+      }
+
+      it "does not return any CLOSED agencies" do
+        get "/api/facilities", facility_type: :adoption_agency
+
+        expect(response).to be_success
+        all_parsed = JSON.parse(response.body)
+        expect(all_parsed.count).to eq(1)
+        facility = all_parsed.first
+
+        expect(facility["status"]).to eq("LICENSED")
+      end
+    end
+
     context "Adoption agencies Within 50 miles of 94589 (Vallejo)" do
       let!(:marysville) {
         create(:adoption_agency,
@@ -48,6 +68,7 @@ RSpec.describe "Facilities queries" do
         expect(facility["lat"]).to eq(37.797441)
         expect(facility["lon"]).to eq(-122.275554)
         expect(facility["distance_in_miles"]).to eq(25)
+        expect(facility["status"]).to eq("LICENSED")
       end
     end
   end

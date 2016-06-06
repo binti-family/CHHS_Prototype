@@ -1,12 +1,12 @@
 class Api::FacilitiesController < ApplicationController
   def index
-    scope = case params[:facility_type]
+    scope = Facility.active
+
+    case params[:facility_type]
     when "adoption_agency"
-      Facility.adoption_agency
+      scope = scope.adoption_agency
     when "residential_facility"
-      Facility.residential_facility
-    else
-      Facility.all
+      scope = scope.residential_facility
     end
 
     if params[:zipcode] && params[:within]

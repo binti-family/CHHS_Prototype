@@ -8,4 +8,7 @@ class Facility < ActiveRecord::Base
       "Geography(ST_MakePoint(#{lon}, #{lat})), #{num_miles.to_i * 1609.34})"
     )
   }
+  scope :active, -> {
+    where.not(status: "CLOSED")
+  }
 end
