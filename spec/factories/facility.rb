@@ -3,5 +3,8 @@ FactoryGirl.define do
     factory :adoption_agency do
       facility_type :adoption_agency
     end
+    factory :residential_facility do
+      facility_type :residential_facility
+    end
   end
 end

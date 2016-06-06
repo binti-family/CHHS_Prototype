@@ -2,23 +2,46 @@ require "rails_helper"
 
 RSpec.describe "Facilities queries" do
   context "Valid queries" do
-    context "All adoption agencies" do
-      let!(:licensed_agency) {
+    context "By facility type, without zipcode or distance" do
+      let!(:licensed_adoption_agency) {
         create(:adoption_agency, status: "LICENSED")
       }
-      let!(:closed_agency) {
+      let!(:closed_adoption_agency) {
         create(:adoption_agency, status: "CLOSED")
       }
+      let!(:licensed_residential_facility) {
+        create(:residential_facility, status: "LICENSED")
+      }
+      let!(:closed_residential_facility) {
+        create(:residential_facility, status: "CLOSED")
+      }
 
-      it "does not return any CLOSED agencies" do
-        get "/api/facilities", facility_type: :adoption_agency
+      context "asking for adoption agencies" do
+        it "does not return any CLOSED agencies or any residential facilities" do
+          get "/api/facilities", facility_type: :adoption_agency
 
-        expect(response).to be_success
-        all_parsed = JSON.parse(response.body)
-        expect(all_parsed.count).to eq(1)
-        facility = all_parsed.first
+          expect(response).to be_success
+          all_parsed = JSON.parse(response.body)
+          expect(all_parsed.count).to eq(1)
+          facility = all_parsed.first
 
-        expect(facility["status"]).to eq("LICENSED")
+          expect(facility["status"]).to eq("LICENSED")
+          expect(facility["facility_type"]).to eq("adoption_agency")
+        end
+      end
+
+      context "asking for residential facilities" do
+        it "does not return any CLOSED facilities or adoption agencies" do
+          get "/api/facilities", facility_type: :residential_facility
+
+          expect(response).to be_success
+          all_parsed = JSON.parse(response.body)
+          expect(all_parsed.count).to eq(1)
+          facility = all_parsed.first
+
+          expect(facility["status"]).to eq("LICENSED")
+          expect(facility["facility_type"]).to eq("residential_facility")
+        end
       end
     end
 

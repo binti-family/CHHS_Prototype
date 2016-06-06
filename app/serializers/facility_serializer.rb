@@ -7,7 +7,7 @@ class FacilitySerializer < ActiveModel::Serializer
     end
   end
 
-  attributes :address, :city, :name, :phone_number, :status
+  attributes :address, :city, :facility_type, :name, :phone_number, :status
 
   attribute :lon do
     object.location&.lon
