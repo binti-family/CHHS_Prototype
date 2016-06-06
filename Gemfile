@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'pg', '~> 0.15'
 gem 'activerecord-postgis-adapter'
+gem 'puma'
 gem 'sass-rails', '~> 5.0'
 gem 'soda-ruby', require: 'soda' # for accessing CA HHS open data
 gem 'uglifier', '>= 1.3.0'
