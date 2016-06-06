@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
   port: "587",
   authentication: :plain,
   user_name: ENV["SENDGRID_USERNAME"],
-  password: ENV["SENDGRID_USERNAME"],
+  password: ENV["SENDGRID_PASSWORD"],
   domain: "binti.com"
 }
 ActionMailer::Base.delivery_method = :smtp
