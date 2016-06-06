@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'].sub(/^postgres/, "postgis") %>
   database: CHHS_Prototype_production
   username: CHHS_Prototype
   password: <%= ENV['CHHS_PROTOTYPE_DATABASE_PASSWORD'] %>
