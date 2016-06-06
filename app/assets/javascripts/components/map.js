@@ -19,13 +19,13 @@ $(function () {
           var facilityTemplate = _.template($('.template-facility-row').html());
           var $facilitiesContainer = $('.facilities-container');
 
-          _.first(results, 10).forEach(function (facility) {
-            var md = facility.location.match(/POINT \((-?\d+.\d+)\s(-?\d+.\d+)/);
-
+          _.chain(results).sortBy(function (facility) {
+            return facility.distance_in_miles;
+          }).first(10).each(function (facility) {
             var marker = new window.google.maps.Marker({
               position: new window.google.maps.LatLng(
-                parseFloat(md[2]),
-                parseFloat(md[1])
+                facility.lat,
+                facility.lon
               ),
               map: map,
               title: facility.name,

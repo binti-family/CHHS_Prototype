@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     end
 
     get '/map' => 'home#map', as: :map
-    root to: 'home#index'
+    root to: 'home#map'
   end
 end
