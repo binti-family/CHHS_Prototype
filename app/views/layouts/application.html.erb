@@ -8,6 +8,7 @@
 </head>
 <body>
   <%= render "shared/nav" %>
+  <div class="usa-grid">
   <%= yield %>
 
   <% if I18n.locale == :en %>
@@ -21,6 +22,8 @@
   <% else %>
     <%= link_to "Español", url_for(locale: :es) %>
   <% end %>
+
+  </div>
 
   <%= javascript_include_tag 'application' %>
 </body>
