@@ -13,6 +13,6 @@ class Api::FacilitiesController < ApplicationController
       scope = scope.within_miles_of_zipcode(params[:within], params[:zipcode])
     end
 
-    render json: scope.to_json
+    render json: scope, zipcode: params[:zipcode]
   end
 end

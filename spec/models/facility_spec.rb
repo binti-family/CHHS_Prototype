@@ -46,7 +46,7 @@ RSpec.describe Facility do
       context "within 250 miles of SOMA (SF)" do
         it "returns returns the SF and Oakland facilities" do
           expect(
-            Facility.within_miles_of_zipcode(400, 94110)
+            Facility.within_miles_of_zipcode(399, 94110)
           ).to contain_exactly(lower_haight, mission, oakland, los_angeles)
         end
       end
