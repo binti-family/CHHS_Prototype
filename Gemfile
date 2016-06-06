@@ -31,6 +31,7 @@ group :development do
   gem 'guard'
   gem 'guard-livereload'
   gem 'rack-livereload'
+  gem 'quiet_assets'
   gem 'spring'
 end
 
