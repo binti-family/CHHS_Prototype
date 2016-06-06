@@ -43,3 +43,6 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
