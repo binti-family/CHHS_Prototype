@@ -8,7 +8,6 @@ $(function () {
       mapTypeId: window.google.maps.MapTypeId.ROADMAP,
       zoom: 6,
     });
-    var infoTemplate = $('.template-marker-info').html();
 
     $('.map-finder').on('submit', function (e) {
       e.preventDefault();
@@ -16,6 +15,9 @@ $(function () {
         .done(function (results) {
           var bounds = new window.google.maps.LatLngBounds();
           var infoWindow = new window.google.maps.InfoWindow();
+          var infoTemplate = _.template($('.template-marker-info').html());
+          var facilityTemplate = _.template($('.template-facility-row').html());
+          var $facilitiesContainer = $('.facilities-container');
 
           _.first(results, 10).forEach(function (facility) {
             var md = facility.location.match(/POINT \((-?\d+.\d+)\s(-?\d+.\d+)/);
@@ -31,9 +33,11 @@ $(function () {
 
             bounds.extend(marker.getPosition());
 
+            $facilitiesContainer.append($(facilityTemplate(facility)));
+
             marker.addListener('click', function () {
               infoWindow.close();
-              infoWindow.setContent(_.template(infoTemplate)(facility));
+              infoWindow.setContent(infoTemplate(facility));
               infoWindow.open(map, marker);
             });
           });
