@@ -5,6 +5,7 @@ ruby '2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 
+gem 'active_model_serializers', '~> 0.10.0'
 gem "autoprefixer-rails"
 gem 'devise'
 gem 'devise-i18n'
@@ -36,5 +37,6 @@ end
 group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 

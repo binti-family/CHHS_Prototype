@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605043715) do
+ActiveRecord::Schema.define(version: 20160606005821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(version: 20160605043715) do
     t.geography "location",          limit: {:srid=>4326, :type=>"point", :geographic=>true}
   end
 
-  add_index "facilities", ["facility_number"], name: "index_facilities_on_facility_number", using: :btree
+  add_index "facilities", ["facility_number"], name: "index_facilities_on_facility_number", unique: true, using: :btree
   add_index "facilities", ["facility_type"], name: "index_facilities_on_facility_type", using: :btree
   add_index "facilities", ["location"], name: "index_facilities_on_location", using: :gist
+  add_index "facilities", ["status"], name: "index_facilities_on_status", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

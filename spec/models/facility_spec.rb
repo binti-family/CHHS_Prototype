@@ -1,6 +1,11 @@
 require "rails_helper"
 
 RSpec.describe Facility do
+  it { should have_db_index(:facility_number) }
+  it { should have_db_index(:facility_type) }
+  it { should have_db_index(:location) }
+  it { should have_db_index(:status) }
+
   context ".within_miles_of_zipcode" do
     context "no facilities exist" do
       context "valid params" do
@@ -46,7 +51,7 @@ RSpec.describe Facility do
       context "within 250 miles of SOMA (SF)" do
         it "returns returns the SF and Oakland facilities" do
           expect(
-            Facility.within_miles_of_zipcode(400, 94110)
+            Facility.within_miles_of_zipcode(399, 94110)
           ).to contain_exactly(lower_haight, mission, oakland, los_angeles)
         end
       end
