@@ -12,16 +12,30 @@
     <% if current_user %>
       <ul>
         <li>
-          <%= link_to t("nav_messages"), "#" %>
+          <%= link_to messages_path do %>
+            <i class="fa fa-envelope"></i>
+            <%= t("nav_messages") %>
+          <% end %>
         </li>
         <li>
-          <%= link_to t("nav_map"), root_path %>
+          <%= link_to root_path do %>
+            <i class="fa fa-map-marker"></i>
+            <%= t("nav_map") %>
+          <% end %>
         </li>
         <li>
-          <%= link_to t("nav_logout"),
-            destroy_session_path(:user),
+          <%= link_to root_path do %>
+            <i class="fa fa-user"></i>
+            <%= t("nav_profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_session_path(:user),
             method: :delete,
-            class: "text-center" %>
+            class: "text-center" do %>
+            <i class="fa fa-sign-out"></i>
+            <%= t("nav_logout") %>
+          <% end %>
         </li>
       </ul>
     <% else %>

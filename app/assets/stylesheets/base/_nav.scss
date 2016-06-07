@@ -1,6 +1,7 @@
 nav {
   $logo-width: 7.5em;
   $nav-padding: 0.4em;
+  $medium-screen: 800px;
 
   background: $color-primary;
   max-height: 55px;
@@ -41,7 +42,7 @@ nav {
       @media(min-width: #{$medium-screen}) {
         border: none;
         display: inline-block;
-        padding: 0.3em 1.5em;
+        padding: 0.3em 0.5em;
 
         &:hover {
           background: initial;
@@ -52,6 +53,7 @@ nav {
         &.with-border {
           border: 2px solid $color-white;
           border-radius: 0.4em;
+          padding: 0.3em 1.5em;
 
           &:hover {
             background: $link-color-inverse;

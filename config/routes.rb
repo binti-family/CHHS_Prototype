@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get '/dashboard' => 'users#dashboard'
     end
 
+    resources :messages
+
     root to: 'home#map'
   end
 end
