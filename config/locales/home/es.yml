@@ -1,2 +1,9 @@
 es:
   welcome_message: "Localiza proveedor de servicios de cuidado temporal cerca de usted"
+  characters_minimum: "%{n} characters minimum"
+  create_an_account: "Crea una cuenta"
+  find: "Econtrar"
+  get_started: "Empezar a utilizar el Portal de Padres de hoy"
+  sign_in: "Registrarse"
+  sign_up: "Regístrate"
+  zipcode: "Código postal"
