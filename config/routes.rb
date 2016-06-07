@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   end
 
   scope "(:locale)", locale: /en|es/ do
-    devise_for :users
+    devise_for :users, {
+      controllers: {
+        registrations: :registrations
+      }
+    }
 
     resource :user, only: [:update] do
       get '/dashboard' => 'users#dashboard'

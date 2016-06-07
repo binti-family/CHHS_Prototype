@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     if current_user.social_worker?
       @conversations = current_user.conversations.includes(:users, :messages)
     else
-      @messages = current_user.includes(:messages).conversation.messages
+      @messages = current_user.conversation.messages
       render :show
     end
   end

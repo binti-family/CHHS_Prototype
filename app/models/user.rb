@@ -11,4 +11,9 @@ class User < ActiveRecord::Base
   def social_worker?
     false
   end
+
+  def create_initial_conversation
+    conversation = create_conversation
+    SocialWorker.first.conversations << conversation
+  end
 end

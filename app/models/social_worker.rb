@@ -1,5 +1,5 @@
 class SocialWorker < User
-  has_many :conversations, foreign_key: :user_id
+  has_and_belongs_to_many :conversations, join_table: "social_worker_conversations"
 
   def social_worker?
     true

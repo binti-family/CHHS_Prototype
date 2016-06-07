@@ -23,11 +23,6 @@ ActiveRecord::Schema.define(version: 20160607042104) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "conversations_users_tables", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "conversation_id"
-  end
-
   create_table "facilities", force: :cascade do |t|
     t.json      "raw_location_data"
     t.integer   "facility_type"
@@ -43,7 +38,7 @@ ActiveRecord::Schema.define(version: 20160607042104) do
     t.geography "location",          limit: {:srid=>4326, :type=>"point", :geographic=>true}
   end
 
-  add_index "facilities", ["facility_number"], name: "index_facilities_on_facility_number", unique: true, using: :btree
+  add_index "facilities", ["facility_number"], name: "index_facilities_on_facility_number", using: :btree
   add_index "facilities", ["facility_type"], name: "index_facilities_on_facility_type", using: :btree
   add_index "facilities", ["location"], name: "index_facilities_on_location", using: :gist
   add_index "facilities", ["status"], name: "index_facilities_on_status", using: :btree
@@ -54,6 +49,11 @@ ActiveRecord::Schema.define(version: 20160607042104) do
     t.integer  "conversation_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "social_worker_conversations", force: :cascade do |t|
+    t.integer "social_worker_id"
+    t.integer "conversation_id"
   end
 
   create_table "users", force: :cascade do |t|
