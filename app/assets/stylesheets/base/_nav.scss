@@ -23,18 +23,18 @@ nav {
 
     a {
       border-top: 1px solid $color-white;
-      color: $link-color-inverse;
+      color: $text-color-inverse;
       display: block;
       font-size: 1.2em;
       padding: 1em $grid-margins;
       transition: color 0.2s ease, background 0.2s ease;
 
       &:visited {
-        color: $link-color-inverse;
+        color: $text-color-inverse;
       }
 
       &:hover {
-        background: $link-color-inverse;
+        background: $text-color-inverse;
         color: $color-primary;
         text-decoration: none;
       }
@@ -46,7 +46,7 @@ nav {
 
         &:hover {
           background: initial;
-          color: $link-color-inverse;
+          color: $text-color-inverse;
           text-decoration: underline;
         }
 
@@ -56,7 +56,7 @@ nav {
           padding: 0.3em 1.5em;
 
           &:hover {
-            background: $link-color-inverse;
+            background: $text-color-inverse;
             color: $color-primary;
             text-decoration: none;
           }

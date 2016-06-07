@@ -25,7 +25,8 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @messages = Conversation.includes(:messages).find(params[:id]).messages
+    @conversation = Conversation.includes(:messages, :user).find(params[:id])
+    @messages = @conversation.messages
   end
 
   private
