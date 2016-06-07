@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get '/dashboard' => 'users#dashboard'
     end
 
-    resources :messages
+    resources :messages, only: [:create, :index, :show]
 
     root to: 'home#map'
   end

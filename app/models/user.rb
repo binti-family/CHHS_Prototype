@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   has_one :conversation
+  has_many :messages
+
+  def avatar
+    "#{first_name.first}#{last_name.first}".upcase
+  end
 
   def full_name
     "#{first_name} #{last_name}"
