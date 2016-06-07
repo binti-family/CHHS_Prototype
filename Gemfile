@@ -34,7 +34,6 @@ group :development do
   gem 'guard-livereload'
   gem 'rack-livereload'
   gem 'quiet_assets'
-  gem 'spring'
 end
 
 group :test do

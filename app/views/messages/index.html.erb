@@ -1,0 +1,21 @@
+<h2><%= t("social_worker_messages_header") %></h2>
+<ul class="messages-container">
+  <% @conversations.each do |conversation| %>
+    <li>
+      <%= link_to message_path(id: conversation.id) do %>
+        <p>
+          <strong><%= conversation.user.full_name %></strong>
+        </p>
+        <p>
+          <span class="date-container">
+            <%= time_ago_in_words(conversation.messages.last.created_at) %>
+          </span>
+          <em><%= conversation.messages.last.user.full_name %></em>
+          <span>
+            <%= conversation.messages.last.body %>
+          </span>
+        </p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

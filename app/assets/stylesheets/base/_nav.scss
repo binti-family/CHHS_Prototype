@@ -1,11 +1,20 @@
 nav {
+  $logo-width: 7.5em;
+  $nav-padding: 0.4em;
+  $medium-screen: 800px;
+
   background: $color-primary;
-  height: 70px;
+  max-height: 55px;
   overflow: hidden;
-  transition: height ease 0.2s;
+  padding: $nav-padding 0;
+  transition: max-height ease 0.2s;
 
   &.open {
-    height: 30rem;
+    max-height: 30em;
+  }
+
+  @media(min-width: #{$medium-screen}) {
+    max-height: initial;
   }
 
   ul {
@@ -14,14 +23,51 @@ nav {
 
     a {
       border-top: 1px solid $color-white;
-      color: $link-color-inverse;
+      color: $text-color-inverse;
       display: block;
       font-size: 1.2em;
-      padding: 1em;
+      padding: 1em $grid-margins;
+      transition: color 0.2s ease, background 0.2s ease;
 
       &:visited {
-        color: $link-color-inverse;
+        color: $text-color-inverse;
       }
+
+      &:hover {
+        background: $text-color-inverse;
+        color: $color-primary;
+        text-decoration: none;
+      }
+
+      @media(min-width: #{$medium-screen}) {
+        border: none;
+        display: inline-block;
+        padding: 0.3em 0.5em;
+
+        &:hover {
+          background: initial;
+          color: $text-color-inverse;
+          text-decoration: underline;
+        }
+
+        &.with-border {
+          border: 2px solid $color-white;
+          border-radius: 0.4em;
+          padding: 0.3em 1.5em;
+
+          &:hover {
+            background: $text-color-inverse;
+            color: $color-primary;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    @media(min-width: #{$medium-screen}) {
+      float: right;
+      text-align: right;
+      width: calc(100% - #{$logo-width});
     }
   }
 
@@ -29,27 +75,43 @@ nav {
     list-style: none;
     display: block;
     margin: 0;
+    margin-left: -$grid-margins;
+    width: calc(100% + (2 * #{$grid-margins}));
 
     &:before, &:after {
       content: none;
+    }
+
+    @media(min-width: #{$medium-screen}) {
+      display: inline-block;
+      margin-left: 0;
+      width: initial;
     }
   }
 
   .logo-container {
     display: block;
-    padding-top: .4em;
-    width: 9em;
+    width: $logo-width;
   }
 
   .logo-only {
     display: inline-block;
-    margin-top: 0.4em;
+  }
+
+  .nav-controls {
+    @include clearfix;
+
+    @media(min-width: #{$medium-screen}) {
+      &:after, &:before {
+        display: none;
+      }
+    }
   }
 
   .nav-toggle {
     display: block;
     color: $color-white;
-    padding: 1.5rem 0 2rem;
+    padding-top: 0.2em;
     text-align: right;
 
     &:active {
@@ -63,6 +125,10 @@ nav {
 
     i {
       font-size: 3.5rem;
+    }
+
+    @media(min-width: #{$medium-screen}) {
+      display: none;
     }
   }
 }

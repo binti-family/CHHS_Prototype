@@ -1,0 +1,71 @@
+.messages-list {
+  width: 100%;
+}
+
+.message-container {
+  $avatar-size: 50px;
+  $triangle-size: 10px;
+
+  display: block;
+
+  &:before {
+    content: "";
+  }
+
+  .avatar {
+    border-radius: 50%;
+    color: $text-color-inverse;
+    background: $color-primary-alt-light;
+    font-size: 1.5em;
+    line-height: $avatar-size;
+    text-align: center;
+    font-weight: 800;
+    height: $avatar-size;
+    width: $avatar-size;
+  }
+
+  .message-body {
+    background: $color-primary-alt;
+    border-radius: $border-radius;
+    color: $text-color-inverse;
+    margin: 0;
+    padding: 1em;
+    position: relative;
+    width: calc(100% - #{$avatar-size + 20px});
+
+    &:after {
+      content: " ";
+      display: block;
+      border-bottom: $triangle-size solid transparent;
+      border-top: $triangle-size solid transparent;
+      border-left: $triangle-size solid $color-primary-alt;
+      position: absolute;
+      right: -$triangle-size;
+      top: 10px;
+      height: 0;
+      width: 0;
+    }
+
+    &.mine {
+      background: $color-gray-light;
+
+      &:after {
+        display: none;
+      }
+
+      &:before {
+        content: " ";
+        display: block;
+        border-bottom: $triangle-size solid transparent;
+        border-top: $triangle-size solid transparent;
+        border-right: $triangle-size solid $color-gray-light;
+        position: absolute;
+        left: -$triangle-size;
+        top: 10px;
+        height: 0;
+        width: 0;
+      }
+    }
+  }
+}
+

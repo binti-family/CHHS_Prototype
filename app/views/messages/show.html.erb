@@ -1,0 +1,41 @@
+<% if current_user.social_worker? %>
+  <h1>
+    <%= t("messages_social_worker_header") %>
+    <%= @conversation.user.full_name %>
+  </h1>
+<% else %>
+  <h1>
+    <%= t("messages_header") %>
+  </h1>
+  <p>
+    <strong><%= SocialWorker.first.full_name %></strong><br/>
+    <%= SocialWorker.first.phone_number %>
+  </p>
+<% end %>
+
+<ul class="messages-list">
+  <% @messages.each do |message| %>
+    <% if message.user == current_user %>
+      <li class="message-container clearfix">
+        <div class="avatar pull-left">Me</div>
+        <p class="message-body pull-right mine">
+          <%= message.body %>
+        </p>
+      </li>
+    <% else %>
+      <li class="message-container clearfix">
+        <p class="message-body pull-left">
+          <%= message.body %>
+        </p>
+        <div class="avatar pull-right"><%= message.user.avatar %></div>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= form_for Message.new do |f| %>
+  <%= f.label :body, t("message_text_instructions") %>
+  <%= hidden_field_tag "message[conversation_id]", params[:id] %>
+  <%= f.text_area :body %>
+  <%= f.submit t("message_submit") %>
+<% end %>
