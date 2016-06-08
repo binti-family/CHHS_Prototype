@@ -41,6 +41,12 @@
     <% else %>
       <ul>
         <li>
+          <%= link_to root_path do %>
+            <i class="fa fa-map-marker"></i>
+            <%= t("nav_map") %>
+          <% end %>
+        </li>
+        <li>
           <%= link_to t("nav_log_in"), new_session_path(:user) %>
         </li>
         <li>
