@@ -5,7 +5,7 @@
   <div class="clearfix">
     <div class="form-quarter form-zipcode">
       <label>
-        Zipcode:
+        <%= t(:zipcode) %>:
         <input type="text" name="zipcode">
       </label>
     </div>
@@ -14,7 +14,7 @@
       <label class="select-group">
         Facility Type
         <select name="facility_type">
-          <option value="adoption_agency">Adoption Agencies</option>
+          <option value="adoption_agency"><%= t(:adoption_agencies) %></option>
           <option value="adoption_agency">Residential Facilities</option>
           <option value="">All</option>
         </select>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-quarter">
-      <button type="submit">Find!</button>
+      <button type="submit">Search</button>
     </div>
   </div>
 </form>
