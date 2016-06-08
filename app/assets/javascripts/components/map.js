@@ -18,6 +18,7 @@ $(function () {
           var infoTemplate = _.template($('.template-marker-info').html());
           var facilityTemplate = _.template($('.template-facility-row').html());
           var $facilitiesContainer = $('.facilities-container');
+          $facilitiesContainer.html('');
 
           _.chain(results).sortBy(function (facility) {
             return facility.distance_in_miles;
