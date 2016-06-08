@@ -9,6 +9,9 @@
 <body>
   <%= render "shared/nav" %>
   <div class="usa-grid">
+   <% flash.each do |key, value| %>
+      <div class="usa-alert usa-alert-<%= usa_flash_class(key) %>"><%= value %></div>
+    <% end %>
   <%= yield %>
 
   <% if I18n.locale == :en %>
