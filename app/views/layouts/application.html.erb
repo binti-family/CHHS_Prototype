@@ -8,25 +8,41 @@
 </head>
 <body>
   <%= render "shared/nav" %>
-  <div class="usa-grid">
+  <div class="usa-grid main-content">
    <% flash.each do |key, value| %>
       <div class="usa-alert usa-alert-<%= usa_flash_class(key) %>"><%= value %></div>
     <% end %>
-  <%= yield %>
 
-  <% if I18n.locale == :en %>
-    English
-  <% else %>
-    <%= link_to "English", url_for(locale: nil) %>
-  <% end %>
-  |
-  <% if I18n.locale == :es %>
-    Español
-  <% else %>
-    <%= link_to "Español", url_for(locale: :es) %>
-  <% end %>
-
+    <%= yield %>
   </div>
+
+  <footer>
+    <div class="usa-grid clearfix">
+      <div class="pull-left">
+        <div class="clearfix">
+          <img src="/images/chhslogo-color.png"
+               alt="CHHS Logo"
+               class="pull-left chhs-logo">
+          <strong>California Health & Human<br> Services Agency</strong>
+        </div>
+      </div>
+      <div class="pull-right options">
+        <% if I18n.locale == :en %>
+          English
+        <% else %>
+          <%= link_to "English", url_for(locale: nil) %>
+        <% end %>
+        |
+        <% if I18n.locale == :es %>
+          Español
+        <% else %>
+          <%= link_to "Español", url_for(locale: :es) %>
+        <% end %>
+        | (916)654-3454
+        | <a href="mailto:contact@chhs.gov">contact@chhs.gov</a>
+      </div>
+    </div>
+  </footer>
 
   <%= javascript_include_tag 'application' %>
 </body>
