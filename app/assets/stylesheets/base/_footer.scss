@@ -1,7 +1,7 @@
 footer {
   background: $color-gray-cool-light;
-  height: 100px;
-  padding-top: 1.5em;
+  min-height: 100px;
+  padding: 1.5em 0;
 
   strong {
     font-size: 19px;
@@ -9,10 +9,15 @@ footer {
   }
 
   .chhs-logo {
-    margin-right: 0.5em;
+    margin: 0 0.5em 0.5em -0.2em;
   }
 
   .options {
     margin-top: 0.6em;
+    float: left;
+
+    @media(min-width: #{850px}) {
+      float: right;
+    }
   }
 }

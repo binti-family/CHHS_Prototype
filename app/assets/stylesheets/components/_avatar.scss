@@ -1,0 +1,10 @@
+.avatar {
+  border-radius: 50%;
+  height: $avatar-size;
+  width: $avatar-size;
+
+  &.large {
+    height: 2 * $avatar-size;
+    width: 2 * $avatar-size;
+  }
+}

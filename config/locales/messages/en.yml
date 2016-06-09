@@ -1,5 +1,9 @@
 en:
-  messages_header: "Message your social worker"
-  messages_social_worker_header: "Messages with"
-  message_submit: "Send"
-  message_text_instructions: "Write your message below"
+  messages:
+    header: "Message your social worker"
+    social_worker_header: "Messages with"
+    social_worker_messages_header: "Messages"
+    social_worker_your_info: "Your information"
+    submit: "Send"
+    text_instructions: "Write your message below"
+    your_social_work: "Your Social Worker"

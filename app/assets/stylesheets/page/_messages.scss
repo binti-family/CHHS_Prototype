@@ -1,9 +1,12 @@
 .messages-list {
+  display: block;
+  margin-top: 20px;
+  max-height: 50vh;
+  overflow: auto;
   width: 100%;
 }
 
 .message-container {
-  $avatar-size: 50px;
   $triangle-size: 10px;
 
   display: block;
@@ -13,15 +16,12 @@
   }
 
   .avatar {
-    border-radius: 50%;
     color: $text-color-inverse;
     background: $color-primary-alt-light;
     font-size: 1.5em;
     line-height: $avatar-size;
     text-align: center;
     font-weight: 800;
-    height: $avatar-size;
-    width: $avatar-size;
   }
 
   .message-body {
@@ -66,6 +66,52 @@
         width: 0;
       }
     }
+  }
+}
+
+.social-worker-bio {
+  font-size: 1.1em;
+  border-bottom: 1px solid $color-gray-light;
+  margin: 0;
+  padding-bottom: 1em;
+
+  strong {
+    display: inline-block;
+    margin-top: 1em;
+  }
+
+  img {
+    margin-right: 1em;
+  }
+}
+
+.messages-container {
+  width: 100%;
+
+  li {
+    &:before, &:after {
+      display: none;
+    }
+  }
+}
+
+.conversation-details {
+  color: $color-black;
+  margin-left: 20px;
+  width: calc(100% - #{$avatar-size + 20px});
+
+  .date-container {
+    margin-right: 10px;
+  }
+}
+
+.conversation-container {
+  border-bottom: 1px solid $color-gray-light;
+  padding: 2em 0;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $color-gray-lighter;
   }
 }
 
