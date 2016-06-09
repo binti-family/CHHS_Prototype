@@ -40,7 +40,7 @@
         t("registration.form.confirm_password"),
         required: true %>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      <%= f.submit %>
+      <%= f.submit t("registration.submit") %> 
     <% end %>
   </section>
 </article>
