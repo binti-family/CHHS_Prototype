@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
     end
 
     if current_user.social_worker?
-      redirect_to message_path(message.conversation)
+      redirect_to message_path(id: message.conversation_id)
     else
       redirect_to messages_path
     end

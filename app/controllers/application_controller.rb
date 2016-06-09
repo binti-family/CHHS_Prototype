@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
     end
     options
   end
+
+  def after_sign_in_path_for(user)
+    messages_path
+  end
 end

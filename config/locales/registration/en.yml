@@ -1,0 +1,8 @@
+en:
+  registration:
+    case_worker_reason: "Update your account details for your case worker."
+    create_account: "Create an account"
+    message_reason: "Message your case worker easily and ask any questions."
+    welcome_message: "Sign up to message your case worker."
+    why_join: "Why join?"
+
