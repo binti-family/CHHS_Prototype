@@ -36,9 +36,6 @@
       <%= f.label :zipcode, t("user.zipcode") %>
       <%= f.number_field :zipcode %>
     </p>
-    <p>
-      <%= link_to t("user.change_password"), edit_registration_path(:user) %>
-    </p>
     <%= f.submit t("user.save") %>
   </section>
 <% end %>
