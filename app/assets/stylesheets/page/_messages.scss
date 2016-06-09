@@ -25,7 +25,7 @@
   }
 
   .message-body {
-    background: $color-primary-alt;
+    background: $color-gray-light;
     border-radius: $border-radius;
     color: $text-color-inverse;
     margin: 0;
@@ -38,7 +38,7 @@
       display: block;
       border-bottom: $triangle-size solid transparent;
       border-top: $triangle-size solid transparent;
-      border-left: $triangle-size solid $color-primary-alt;
+      border-left: $triangle-size solid $color-gray-light;
       position: absolute;
       right: -$triangle-size;
       top: 10px;
@@ -47,7 +47,7 @@
     }
 
     &.mine {
-      background: $color-gray-light;
+      background: $color-primary-alt;
 
       &:after {
         display: none;
@@ -58,7 +58,7 @@
         display: block;
         border-bottom: $triangle-size solid transparent;
         border-top: $triangle-size solid transparent;
-        border-right: $triangle-size solid $color-gray-light;
+        border-right: $triangle-size solid $color-primary-alt;
         position: absolute;
         left: -$triangle-size;
         top: 10px;
