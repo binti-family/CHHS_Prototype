@@ -33,7 +33,13 @@
           <%= message.body %><br/>
           <em><%= time_ago_in_words(message.created_at) %></em>
         </p>
-        <div class="avatar pull-right"><%= message.user.avatar %></div>
+        <div class="avatar pull-right">
+          <% if current_user.social_worker? %>
+            <%= message.user.avatar %>
+          <% else %>
+            <img src="/images/social-worker.jpg" alt="<%= SocialWorker.first.full_name %>'s avatar">
+          <% end %>
+        </div>
       </li>
     <% end %>
   <% end %>
