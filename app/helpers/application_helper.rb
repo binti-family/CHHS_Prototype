@@ -1,7 +1,7 @@
 module ApplicationHelper
   USA_FLASH_CLASS = {
-    alert: :error,
-    notice: :info
+    "alert" => :error,
+    "notice" => :info
   }
 
   def usa_flash_class(key)

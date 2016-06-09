@@ -6,6 +6,8 @@ en:
     edit_profile: "Update your profile"
     first_name: "First name"
     last_name: "Last name"
+    profile:
+      saved: "Your Profile was successfully saved!"
     save: "Save"
     section:
       name: "Name"
