@@ -1,0 +1,44 @@
+<h1><%= t("user.edit_profile") %></h1>
+<%= form_for current_user, url: user_path do |f| %>
+  <section>
+    <h2><%= t("user.section.name") %></h2>
+    <p>
+      <%= f.label :first_name, t("user.first_name") %>
+      <%= f.text_field :first_name, required: true %>
+      <%= f.label :last_name, t("user.last_name") %>
+      <%= f.text_field :last_name, required: true %>
+    </p>
+  </section>
+  <section>
+    <h2><%= t("user.section.contact") %></h2>
+    <p>
+      <%= f.label :email, t("user.email") %>
+      <%= f.text_field :email, required: true %>
+      <%= f.label :email, t("user.phone_number") %>
+      <%= f.phone_field :phone_number %>
+    </p>
+  </section>
+  <section>
+    <h2><%= t("user.section.mailing") %></h2>
+    <p>
+      <%= f.label :address, t("user.address") %>
+      <%= f.text_field :address %>
+      <div class="clearfix">
+        <%= f.label :city,  class: "user-city-container pull-left" do %>
+          <%= t("user.city") %>
+          <%= f.text_field :city %>
+        <% end %>
+        <%= f.label :state,  class: "user-state-container pull-right" do %>
+          <%= t("user.state") %>
+          <%= f.select :state, STATES %>
+        <% end %>
+      </div>
+      <%= f.label :zipcode, t("user.zipcode") %>
+      <%= f.number_field :zipcode %>
+    </p>
+    <p>
+      <%= link_to t("user.change_password"), edit_registration_path(:user) %>
+    </p>
+    <%= f.submit t("user.save") %>
+  </section>
+<% end %>

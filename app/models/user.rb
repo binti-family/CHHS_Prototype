@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
   has_one :conversation
   has_many :messages
 
+  validates :first_name, :last_name, presence: true
+
   def avatar
-    "#{first_name.first}#{last_name.first}".upcase
+    "#{first_name.to_s.first}#{last_name.to_s.first}".upcase
   end
 
   def full_name

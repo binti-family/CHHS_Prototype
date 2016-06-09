@@ -3,7 +3,11 @@ class MessagesController < ApplicationController
 
   def index
     if current_user.social_worker?
-      @conversations = current_user.conversations.includes(:messages)
+      @conversations = current_user
+        .conversations
+        .includes(:messages)
+        .where.not(messages: { user_id: current_user.id })
+        .order("messages.created_at DESC")
     else
       @messages = current_user.conversation.messages
       render :show
@@ -18,7 +22,7 @@ class MessagesController < ApplicationController
     end
 
     if current_user.social_worker?
-      redirect_to message_path(message.conversation)
+      redirect_to message_path(id: message.conversation_id)
     else
       redirect_to messages_path
     end
