@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def dashboard
-  end
-
   def update
     current_user.update(user_params)
-    redirect_to dashboard_user_path
+    redirect_to messages_path
+  end
+
+  def edit
   end
 
   private
@@ -16,9 +16,6 @@ class UsersController < ApplicationController
       :first_name,
       :last_name,
       :email,
-      :birth_day,
-      :birth_month,
-      :birth_year,
       :address,
       :city,
       :state,

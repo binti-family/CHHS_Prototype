@@ -1,0 +1,13 @@
+en:
+  user:
+    address: "Mailing address"
+    change_password: "Change Password"
+    email: "Email"
+    edit_profile: "Edit Profile"
+    first_name: "First Name"
+    last_name: "Last Name"
+    save: "Save"
+    section:
+      name: "Name"
+      contact: "Contact information"
+      mailing: "Mailing address"

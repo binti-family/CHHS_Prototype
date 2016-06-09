@@ -10,9 +10,7 @@ Rails.application.routes.draw do
       }
     }
 
-    resource :user, only: [:update] do
-      get '/dashboard' => 'users#dashboard'
-    end
+    resource :user, only: [:edit, :update]
 
     resources :messages, only: [:create, :index, :show]
 
