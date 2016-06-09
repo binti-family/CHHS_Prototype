@@ -2,8 +2,13 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def update
-    current_user.update(user_params)
-    redirect_to messages_path
+    if current_user.update(user_params)
+      flash[:notice] = t("user.profile.saved")
+      redirect_to messages_path
+    else
+      flash[:error] = current_user.errors.full_messages.join(", ")
+      render :edit
+    end
   end
 
   def edit
@@ -13,11 +18,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :first_name,
-      :last_name,
-      :email,
       :address,
       :city,
+      :email,
+      :first_name,
+      :last_name,
+      :phone_number,
       :state,
       :zipcode
     )
