@@ -7,6 +7,8 @@
   <strong><%= SocialWorker.first.full_name %></strong><br/>
   <%= SocialWorker.first.phone_number %>
 </p>
+<hr>
+<br>
 <ul class="messages-container">
   <% @conversations.each do |conversation| %>
     <% next if conversation.messages.empty? %>

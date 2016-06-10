@@ -8,6 +8,7 @@ en:
   welcome_message: "Locate foster care service providers near you"
   zipcode: "Zip code"
   adoption_agencies: "Foster family agencies"
+  facilities: "Residential treatment facilities"
   type: "Provider type"
   all: "All"
   search: "Search"

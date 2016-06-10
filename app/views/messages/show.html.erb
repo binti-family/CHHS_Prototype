@@ -7,7 +7,7 @@
   <h1>
     <%= t("messages.header") %>
   </h1>
-  <h3><%= t("messages.your_social_worker") %></h3>
+  <h3><%= t("messages.your_social_work") %></h3>
   <p class="clearfix social-worker-bio">
     <img src="/images/social-worker.jpg"
          alt="<%= SocialWorker.first.full_name %>'s avatar"
@@ -24,14 +24,14 @@
         <div class="avatar pull-left">Me</div>
         <p class="message-body pull-right mine">
           <%= message.body %><br/>
-          <em><%= time_ago_in_words(message.created_at) %></em>
+          <em><%= time_ago_in_words(message.created_at) %> ago</em>
         </p>
       </li>
     <% else %>
       <li class="message-container clearfix">
         <p class="message-body pull-left">
           <%= message.body %><br/>
-          <em><%= time_ago_in_words(message.created_at) %></em>
+          <em><%= time_ago_in_words(message.created_at) %> ago</em>
         </p>
         <div class="avatar pull-right">
           <% if current_user.social_worker? %>

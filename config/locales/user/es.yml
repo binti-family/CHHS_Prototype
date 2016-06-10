@@ -13,3 +13,7 @@ es:
       name: "Nombre"
       contact: "Información del contacto"
       mailing: "Dirección de envio"
+    phone_number: "Número de teléfono"
+    city: "Ciudad"
+    state: "Estado"
+    zipcode: "Código postal"
