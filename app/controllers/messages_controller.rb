@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     if current_user.social_worker?
       @conversations = current_user
         .conversations
-        .includes(:messages)
+        .includes(messages: :user)
         .where.not(messages: { user_id: current_user.id })
         .order("messages.created_at DESC")
     else
