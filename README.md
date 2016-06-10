@@ -1,14 +1,12 @@
 # CHHS Foster Care Services Prototype
 
-[https://chhs-prototype.binti.com/](https://chhs-prototype.binti.com/)
-
 ## Links
-* **Landing Page:** chhs-prototype.com
-* **Prototype:** chhs-prototype.binti.com
+* **Landing Page:** [chhs-prototype.com](http://chhs-prototype.com/)
+* **Prototype:** [chhs-prototype.binti.com](https://chhs-prototype.binti.com/)
 
 ## Instructions to test
-* **As a parent:** Start at the landing page, chhs-prototype.com.
-* **As a social worker**: To login as a social worker and reply to messages from parents, username: social@binti.com and password: binti456
+* **As a parent:** Start at the landing page, [chhs-prototype.com](http://chhs-prototype.com/)
+* **As a social worker**: To login as a social worker and reply to messages from parents, [login here](https://chhs-prototype.binti.com/users/sign_in) and use username: social@binti.com and password: binti456
 
 ### a. Assigned one leader
 Felicia Curcuru, Binti’s CEO and head of product management, is responsible for the prototype’s quality.
@@ -17,10 +15,10 @@ Felicia Curcuru, Binti’s CEO and head of product management, is responsible fo
 Our team includes 8 labor categories: Product Manager, Front End Web Developer, Backend Web Developer, DevOps Engineer, Visual Designer, User Researcher, Technical Architect, Writer.
 
 ### c. Understood what people needed
-We conducted user interviews with basic mock-ups, a clickable prototype, and a live prototype. We iterated on the design and functionality at each step:
+We conducted user interviews with [basic mock-ups](Product%20documentation/Mockups), a [clickable prototype](https://invis.io/2N7JV7I63), and a live prototype. We iterated on the design and functionality at each step:
 * We interviewed biological parents of foster youth, foster parents, foster care caseworkers, and foster youth. While the tool is primarily meant for biological parents, other groups also expressed interest, so we considered them in our design.
 * To reduce friction, we decided to not hide the search functionality behind login, since multiple groups of users wanted to use this search and the data is publicly available. We only require login for biological parents to message their caseworker.
-* Several of the groups we interviewed preferred to use their mobile devices, so we decided to make the application is mobile-friendly. 
+* Several of the groups we interviewed preferred to use their mobile devices, so we decided to make the application is mobile-friendly.
 * Many biological parents of foster youth in California speak Spanish as their primary language, so the app is available in Spanish.
 * We decided to send an email notification for messages received, as It’s important for users to receive this each time they receive a message in order to alert them to login and reply. 
 * Most people were interested in the map search and messages, but not profiles. Therefore, we focused our efforts on those two and kept the profile basic.
@@ -38,7 +36,7 @@ We conducted user interviews with basic mock-ups, a clickable prototype, and a l
 5. Iterated based on feedback
 
 ### e. Used a design style guide
-Our design is based on the US Web Design Standards. We deviated slightly from the color palette for background and footer colors, after hearing feedback that a grey background and footer made the site seem antiquated.
+Our design is based on the [U.S. Web Design Standards](https://standards.usa.gov/). We deviated slightly from the color palette for background and footer colors, after hearing feedback that a grey background and footer made the site seem antiquated.
 
 ### f. Performed usability tests
 We performed usability tests with mockups of the site, and then a clickable prototype with people for feedback before we started coding. Then we did further usability tests with the working prototype. You can see the decisions these tests helped us make in Section C above.
@@ -47,7 +45,7 @@ See [detailed user interview notes.](Product%20documentation/User%20interviews)
 
 ### g. Used an iterative approach
 
-We used an iterative approach, building a basic version, getting feedback, and iterating. We used static mockups, clickable mockups, and live versions of the prototype to get feedback and iterate. See section C above for the decisions we made during these iterations.
+We used an iterative approach, building a basic version, getting feedback, and iterating. We used [static mockups](Product%20documentation/Mockups), [clickable mockups](https://invis.io/2N7JV7I63), and live versions of the prototype to get feedback and iterate. See section C above for the decisions we made during these iterations.
 
 ### h. Created a responsive prototype that works on multiple devices
 We built a responsive app and tested it across browsers and devices. We adhered to the U.S. Digital Services Playbook for responsive design and browser compatibility.
@@ -86,4 +84,4 @@ We have provided [documentation directly in GitHub.](https://github.com/binti-fa
 
 The prototype, Rails, and Rails plugins are MIT-licensed and Ruby is 2-clause BSD licensed. These are free, permissive licenses.
 
-We also complied with the U.S. Digital Services Playbook. Please read our detailed notes on each play here.
+We also complied with the U.S. Digital Services Playbook. [Please read our detailed notes on each play here.](USDS_PLAYBOOK_CHECKLIST.md)
