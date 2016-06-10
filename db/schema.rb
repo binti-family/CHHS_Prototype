@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607045742) do
+ActiveRecord::Schema.define(version: 20160610023802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,12 +35,14 @@ ActiveRecord::Schema.define(version: 20160607045742) do
     t.integer   "facility_number"
     t.string    "zipcode"
     t.string    "county"
-    t.geography "location",          limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.geography "location",                limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.boolean   "location_is_approximate"
   end
 
   add_index "facilities", ["facility_number"], name: "index_facilities_on_facility_number", using: :btree
   add_index "facilities", ["facility_type"], name: "index_facilities_on_facility_type", using: :btree
   add_index "facilities", ["location"], name: "index_facilities_on_location", using: :gist
+  add_index "facilities", ["location_is_approximate"], name: "index_facilities_on_location_is_approximate", using: :btree
   add_index "facilities", ["status"], name: "index_facilities_on_status", using: :btree
 
   create_table "messages", force: :cascade do |t|

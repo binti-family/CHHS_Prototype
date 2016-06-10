@@ -6,5 +6,6 @@ FactoryGirl.define do
     factory :residential_facility do
       facility_type :residential_facility
     end
+    location_is_approximate false
   end
 end

@@ -6,6 +6,47 @@ RSpec.describe Facility do
   it { should have_db_index(:location) }
   it { should have_db_index(:status) }
 
+  context ".nearest_to_zipcode" do
+    context "no facilities exist" do
+      context "valid params" do
+        it "returns returns empty" do
+          expect(Facility.nearest_to_zipcode(92111)).to be_empty
+        end
+      end
+    end
+
+    context "facilities exist in SF, Oakland, and LA" do
+      let!(:mission) {
+        create(:facility, location: "POINT(-122.419494 37.765930)")
+      }
+      let!(:los_angeles) {
+        create(:facility, location: "POINT(-118.243685 34.052234)")
+      }
+      let!(:oakland) {
+        create(:facility, location: "POINT(-122.271114 37.804364)")
+      }
+      let!(:lower_haight) {
+        create(:facility, location: "POINT(-122.429398 37.773604)")
+      }
+
+      context "querying from Pacific Heights (SF)" do
+        it "returns facilities in correct order" do
+          expect(
+            Facility.nearest_to_zipcode(94115)
+          ).to match_array([lower_haight, mission, oakland, los_angeles])
+        end
+      end
+
+      context "querying from San Diego" do
+        it "returns facilities in correct order" do
+          expect(
+            Facility.nearest_to_zipcode(92104)
+          ).to match_array([los_angeles, lower_haight, mission, oakland])
+        end
+      end
+    end
+  end
+
   context ".within_miles_of_zipcode" do
     context "no facilities exist" do
       context "valid params" do

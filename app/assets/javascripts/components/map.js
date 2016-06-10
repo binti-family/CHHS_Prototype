@@ -22,7 +22,7 @@ $(function () {
 
           _.chain(results).sortBy(function (facility) {
             return facility.distance_in_miles;
-          }).first(10).each(function (facility) {
+          }).each(function (facility) {
             var marker = new window.google.maps.Marker({
               position: new window.google.maps.LatLng(
                 facility.lat,

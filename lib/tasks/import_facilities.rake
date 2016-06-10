@@ -23,6 +23,7 @@ task :import_facilities => :environment do
         if record["location"]["latitude"] && record["location"]["longitude"]
           facility.location =
             "POINT(#{record["location"]["longitude"]} #{record["location"]["latitude"]})"
+          facility.location_is_approximate = false
         end
         facility.save!
       end
