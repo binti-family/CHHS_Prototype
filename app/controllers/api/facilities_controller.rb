@@ -1,5 +1,11 @@
 class Api::FacilitiesController < ApplicationController
   def index
+    # validate zipcode first
+    if params[:zipcode] && !ZIPCODES_INDEX[params["zipcode"]]
+      render json: {error: "Please enter a valid California zipcode"}
+      return
+    end
+
     scope = Facility.active.precise_location
 
     case params[:facility_type]

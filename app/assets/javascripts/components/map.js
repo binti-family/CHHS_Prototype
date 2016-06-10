@@ -13,6 +13,14 @@ $(function () {
       e.preventDefault();
       $.get('/api/facilities.json?' + $(e.target).serialize())
         .done(function (results) {
+          $(".usa-alert-error").remove();
+          if (results.error) {
+            var alertTemplate = _.template($('.template-alert').html());
+            var errorData = {alert_type: "error", message: results.error};
+            $(".map-finder").before(alertTemplate(errorData));
+            return;
+          }
+
           var bounds = new window.google.maps.LatLngBounds();
           var infoWindow = new window.google.maps.InfoWindow();
           var infoTemplate = _.template($('.template-marker-info').html());
