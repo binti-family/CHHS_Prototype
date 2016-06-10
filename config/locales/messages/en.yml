@@ -2,7 +2,7 @@ en:
   messages:
     header: "Message your social worker"
     social_worker_header: "Messages with"
-    social_worker_messages_header: "Messages"
+    social_worker_messages_header: "Messages with parents"
     social_worker_your_info: "Your information"
     submit: "Send"
     text_instructions: "Write your message below"

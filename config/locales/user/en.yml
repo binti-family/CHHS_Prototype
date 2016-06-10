@@ -13,3 +13,7 @@ en:
       name: "Name"
       contact: "Contact information"
       mailing: "Mailing address"
+    phone_number: "Phone number"
+    city: "City"
+    state: "State"
+    zipcode: "Zip code"
