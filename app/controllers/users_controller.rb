@@ -18,15 +18,16 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(
+    attributes = [
       :address,
       :city,
-      :email,
       :first_name,
       :last_name,
       :phone_number,
       :state,
       :zipcode
-    )
+    ]
+    attributes << :email unless current_user.social_worker?
+    params.require(:user).permit(attributes)
   end
 end
