@@ -25,7 +25,8 @@ Prototype: chhs-prototype.binti.com
 * We host the facilities index ourselves rather than query the Socrata API, so that we can geocode some of the facilities missing latitude/longitude in the Socrata API.
 * Social workers we interviewed wanted to be able to edit the website, so, we also built a WordPress landing page that can be easily edited by non-technical users. 
 
-***d. ***
+**d.**
+
 1. Shadowed each type of prospective user 
 2. Interviewed prospective users 
 3. Defined the audience & created user stories 
@@ -38,11 +39,12 @@ Prototype: chhs-prototype.binti.com
 
 See detailed user interview notes.
 
-**g. **See sections c and f.
+**g.** See sections c and f.
 
-**h. **We built a responsive app and tested it across browsers and devices. We adhered to the USDS digital playbook for responsive design and browser compatibility.
+**h.** We built a responsive app and tested it across browsers and devices. We adhered to the USDS digital playbook for responsive design and browser compatibility.
 
-**i. **
+**i.**
+
 * Ruby, version April 2016
 * Rails, version March 2016
 * PostgreSQL, version January 2016
@@ -50,7 +52,7 @@ See detailed user interview notes.
 * Soda-ruby, version February 2016
 * US Web Design Standards, version June 2016
 
-**j. **We deployed the prototype on Heroku, a PaaS provider. Heroku integrates with GitHub, allowing for easy automated deployment. Our prototype can easily operate on a substitute IaaS or PaaS.
+**j.** We deployed the prototype on Heroku, a PaaS provider. Heroku integrates with GitHub, allowing for easy automated deployment. Our prototype can easily operate on a substitute IaaS or PaaS.
 
 **k.** We developed unit tests as we built our code to save time, ensure that our code is reliable and has less errors. 
 
@@ -62,11 +64,11 @@ See detailed user interview notes.
 
 **o.** Heroku uses Linux containers (LXC), but our app will run in any configuration of physical servers, virtual machines, and containers; meaning no vendor lock-in. 
 
-**p. **Provided sufficient documentation to install and run their prototype on another machine
+**p.** Provided sufficient documentation to install and run their prototype on another machine
 
 TODO directly in github
 
-**q. **Open licensed and free platforms used 
+**q.** Open licensed and free platforms used 
 
 The prototype, Rails, and Rails plugins are MIT-licensed and Ruby is 2-clause BSD licensed. These are free, permissive licenses.
 
