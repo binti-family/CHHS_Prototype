@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    current_user.state ||= "CA"
   end
 
   private
