@@ -8,7 +8,7 @@ class Facility < ActiveRecord::Base
   scope :nearest_to_zipcode, ->(zipcode) {
     lat, lon = ZIPCODES_INDEX[zipcode.to_s].slice(:lat, :lon).values
     order(
-      "facilities.location::geometry <-> ST_MakePoint(#{lon}, #{lat})::geometry"
+      "facilities.location::geometry <-> ST_SetSRID(ST_MakePoint(#{lon}, #{lat}), 4326)::geometry"
     )
   }
 
