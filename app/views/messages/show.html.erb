@@ -21,7 +21,7 @@
   <% @messages.each do |message| %>
     <% if message.user == current_user %>
       <li class="message-container clearfix">
-        <div class="avatar pull-left">Me</div>
+        <div class="avatar pull-left"><%= t("messages.me") %></div>
         <p class="message-body pull-right mine">
           <%= message.body %><br/>
           <em><%= time_ago_in_words(message.created_at) %> ago</em>
