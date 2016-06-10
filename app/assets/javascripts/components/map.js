@@ -9,10 +9,9 @@ $(function () {
       zoom: 6,
     });
 
-    var limit = 12;
     $('.map-finder').on('submit', function (e) {
       e.preventDefault();
-      $.get('/api/facilities.json?' + $(e.target).serialize() + "&limit=" + limit)
+      $.get('/api/facilities.json?' + $(e.target).serialize())
         .done(function (results) {
           var bounds = new window.google.maps.LatLngBounds();
           var infoWindow = new window.google.maps.InfoWindow();
@@ -23,7 +22,7 @@ $(function () {
 
           _.chain(results).sortBy(function (facility) {
             return facility.distance_in_miles;
-          }).first(limit).each(function (facility) {
+          }).each(function (facility) {
             var marker = new window.google.maps.Marker({
               position: new window.google.maps.LatLng(
                 facility.lat,
