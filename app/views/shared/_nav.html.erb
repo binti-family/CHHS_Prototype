@@ -31,8 +31,7 @@
         </li>
         <li>
           <%= link_to destroy_session_path(:user),
-            method: :delete,
-            class: "text-center" do %>
+            method: :delete do %>
             <i class="fa fa-sign-out"></i>
             <%= t("nav_logout") %>
           <% end %>
