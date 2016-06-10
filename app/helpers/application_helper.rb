@@ -5,7 +5,7 @@ module ApplicationHelper
   }
 
   def usa_flash_class(key)
-    # the USA Design Standards wants us to ues the class suffix -info
+    # EG the USA Design Standards wants us to use the class suffix -info
     # for where devise adds a "notice" flash
     USA_FLASH_CLASS[key] || key
   end

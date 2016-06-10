@@ -17,13 +17,11 @@ class MessagesController < ApplicationController
   def create
     message = current_user.messages.create(message_params)
 
-    if !current_user.social_worker?
-      current_user.conversation.messages << message
-    end
-
     if current_user.social_worker?
+      ConversationMailer.new_message_email(message.conversation.user).deliver
       redirect_to message_path(id: message.conversation_id)
     else
+      current_user.conversation.messages << message
       redirect_to messages_path
     end
   end
